@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbqe203u4otl3"]
+
+[ext_resource type="PackedScene" uid="uid://c75s2m6eic1vo" path="res://addons/ThirdPersonTemplate/Character/Nodes/PlayerTemplate.tscn" id="1_psjkd"]
+[ext_resource type="Texture2D" uid="uid://xshhqhhxrr1n" path="res://icon.svg" id="1_x2g6n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_663tv"]
+size = Vector3(40, 1, 40)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_20ckw"]
+albedo_texture = ExtResource("1_x2g6n")
+
+[sub_resource type="BoxMesh" id="BoxMesh_ug12o"]
+material = SubResource("StandardMaterial3D_20ckw")
+size = Vector3(40, 1, 40)
+
+[node name="practice" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_663tv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_ug12o")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.801055, 0.59859, 0, -0.59859, 0.801055, 0, 14.2997, 0)
+
+[node name="PlayerTemplate" parent="." instance=ExtResource("1_psjkd")]

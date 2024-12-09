@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bha6t00wl2ek2"]
+
+[ext_resource type="Script" path="res://addons/ThirdPersonTemplate/Character/Scripts/PlayerTemplate.gd" id="1_o80br"]
+[ext_resource type="Script" path="res://addons/ThirdPersonTemplate/Character/Scripts/CameraTemplate.gd" id="2_artax"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2gxvq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8avaf"]
+
+[node name="player" type="CharacterBody3D"]
+script = ExtResource("1_o80br")
+PlayerCharacterMesh = NodePath(".")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_2gxvq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_8avaf")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+script = ExtResource("2_artax")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
